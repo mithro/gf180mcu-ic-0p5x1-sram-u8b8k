@@ -1,19 +1,19 @@
 MAKEFILE_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 RUN_TAG = $(shell ls librelane/runs/ | tail -n 1)
-TOP = chip_top
+TOP = gf180mcu_ic_0p5x1_sram_u8b8k_top
 
 PDK_ROOT ?= $(MAKEFILE_DIR)/gf180mcu
 PDK ?= gf180mcuD
 PDK_TAG ?= 1.4.4
 
 AVAILABLE_SLOTS = 1x1 0p5x1 1x0p5 0p5x0p5
-DEFAULT_SLOT = 1x1
+DEFAULT_SLOT = 0p5x1
 
 # Slot can be any of AVAILABLE_SLOTS
 SLOT ?= $(DEFAULT_SLOT)
 
-ifeq ($(SLOT),default)        
+ifeq ($(SLOT),default)
     SLOT = $(DEFAULT_SLOT)
 endif
 
